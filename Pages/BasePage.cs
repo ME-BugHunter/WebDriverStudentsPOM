@@ -1,10 +1,15 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace WebDriverStudentsPOM.Pages
 {
     public class BasePage
     {
-        private WebDriver driver;
+        protected readonly WebDriver driver;
 
         public BasePage (WebDriver driver)
         {
@@ -30,6 +35,26 @@ namespace WebDriverStudentsPOM.Pages
         public bool IsPageOpen()
         {
             return driver.Url == BaseUrl;
+        }
+
+        public string GetPageHeading()
+        {
+            return PageHeadingLabel.Text;
+        }
+
+        public void OpenHomePage()
+        {
+            HomeLink.Click();
+        }
+
+        public void OpenViewStudentsPage()
+        {
+            ViewStudentsLink.Click();
+        }
+
+        public void OpenAddStudentPage()
+        {
+            AddStudentsLink.Click();
         }
     }
 }
